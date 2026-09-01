@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prestação de Contas - Colaborador</title>
+    <link rel="icon" type="image/png" href="./simbolo-quanta-transparente.png?v=2" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <img src="./logo-quanta.png" alt="Quanta Consultoria" />
+        <h1>Prestação de Contas e Reembolso</h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel identity">
+        <div class="section-title">Dados do Colaborador</div>
+        <label>Nome<input id="nome" type="text" autocomplete="name" /></label>
+        <label>Cargo<input id="cargo" type="text" /></label>
+        <label>CPF<input id="cpf" type="text" inputmode="numeric" /></label>
+        <label>Banco<input id="banco" type="text" /></label>
+        <label>Conta Corrente<input id="conta" type="text" /></label>
+        <label>PIX<input id="pix" type="text" /></label>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">Novo Lançamento</div>
+        <form id="entryForm" class="entry-grid">
+          <label>Data<input id="data" type="date" required /></label>
+          <label>Descrição<input id="descricao" type="text" required /></label>
+          <label>Despesa<input id="despesa" autocomplete="off" required /></label>
+          <label>Centro de Custo<input id="centro" autocomplete="off" required /></label>
+          <label>Fornecedor/Empresa<input id="fornecedor" autocomplete="off" placeholder="Busque ou digite um novo" /></label>
+          <label>CNPJ/CPF fornecedor<input id="fornecedorDoc" type="text" inputmode="numeric" /></label>
+          <label>Documento<input id="documento" type="text" /></label>
+          <label>Valor<input id="valor" type="number" min="0" step="0.01" required /></label>
+          <button type="submit" class="primary">Adicionar</button>
+        </form>
+        <div class="quick-info" id="quickInfo">Clique nos campos Despesa, Centro de Custo ou Fornecedor para pesquisar.</div>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="table-header">
+          <div>
+            <div class="section-title">Lançamentos do Colaborador</div>
+            <div id="summary" class="summary-cards">
+              <div class="summary-card">
+                <span>Total de lançamentos</span>
+                <strong>0</strong>
+              </div>
+              <div class="summary-card highlight">
+                <span>Valor total</span>
+                <strong>R$ 0,00</strong>
+              </div>
+            </div>
+          </div>
+          <div class="table-actions">
+            <button id="clearBtn" type="button">Limpar lançamentos</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Despesa</th>
+                <th>Cod. Despesa</th>
+                <th>Centro de Custo</th>
+                <th>Cod. CC</th>
+                <th>Fornecedor</th>
+                <th>Documento</th>
+                <th>Valor</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="entriesBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="table-header">
+          <div>
+            <div class="section-title">Enviar ao financeiro</div>
+            <p>Baixe o arquivo de dados para o financeiro importar. O PDF é opcional para conferência.</p>
+          </div>
+          <div class="table-actions">
+            <button id="downloadPdfBtn" type="button">Baixar PDF</button>
+            <button id="downloadSubmissionBtn" type="button" class="primary">Baixar arquivo para o financeiro</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./colaborador.js"></script>
+  </body>
+</html>
